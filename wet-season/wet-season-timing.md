@@ -2,7 +2,7 @@
 
 #### Definition
 
-The timing of the wet season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold of 30% of the difference between baseflow and the peak wet season flow of the smoothed data. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+The timing of the wet season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold of 20% of the difference between baseflow and the peak wet season flow of the smoothed data. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 
@@ -33,7 +33,7 @@ The timing of the wet season is defined as the date that sufficient baseflow has
    search_index = int(maxarray_wet[index][0])
    break
    ```
-6. Search from right to left, starting at the search index, for the first flow value that falls below the relative magnitude threshold of 30%. This flow date is set as the start date of the wet season.
+6. Search from right to left, starting at the search index, for the first flow value that falls below the relative magnitude threshold of 20%. This flow date is set as the start date of the wet season.
    ```py
    for index, value in enumerate(reversed(wet_season_filter_data[:search_index])):
         if index == len(wet_season_filter_data[:search_index] - 1):

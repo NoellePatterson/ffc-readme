@@ -1,7 +1,6 @@
 # Summary
 
 * [eFlows Overview](README.md)
-* [eFlows Website](website_summary.md)
 * [Functional Flow Calculator](func-flow-calc)
   * [Installation](installation.md)
     * [MacOS](installation/macos.md)

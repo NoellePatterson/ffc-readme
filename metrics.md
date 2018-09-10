@@ -38,5 +38,5 @@ Other peak magnitude flow season metrics:
 
 #### All Year
 
-* Coefficient of variance
+* Coefficient of variation
 * Average annual flow

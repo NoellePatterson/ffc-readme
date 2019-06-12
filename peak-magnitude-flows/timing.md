@@ -2,7 +2,7 @@
 
 #### Definition
 
-Peak flow timing is the peak magnitude flow component that calculates the start date when a flow event crosses over the flow threshold for the \(2nd, 5th, 10th, and 20th percentile\) exceedance flows over the period of record. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+Peak flow timing is the start date when a flow event crosses over an exceedance flow threshold \(2nd, 5th, 10th, or 20th percentile\). This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 
@@ -12,7 +12,7 @@ Peak flow timing is the peak magnitude flow component that calculates the start 
   for i in exceedance_percent:
         exceedance_value[i] = np.nanpercentile(matrix, 100 - i)
   ```
-3. In each water year, create one object each time the flow passes the exceedance value, and append that object into an array.
+3. In each water year, create an object each time the flow passes the exceedance value, and append that object into an array.
   ```py
   """Init current flow object"""
         for percent in exceedance_percent:

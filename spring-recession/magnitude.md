@@ -10,5 +10,10 @@ The magnitude of the spring recession is the flow magnitude on the start date of
 
 2. Assign the magnitude of the spring recession as the flow on the start date of the spring recession.
   ```py
-  magnitudes[-1] = max_flow_window_new
+  if len(flow_data[timings[-1] - 4: timings[-1] + 7]) > 10:
+    max_flow_window_new = max(
+        flow_data[timings[-1] - 4: timings[-1] + 7])
+    new_timings = find_index(
+        flow_data[timings[-1] - 4: timings[-1] + 7], max_flow_window_new)
+    magnitudes[-1] = max_flow_window_new
   ```

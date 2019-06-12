@@ -2,7 +2,7 @@
 
 #### Definition
 
-Peak flow frequency is peak magnitude flow component that calculates the number of times that flow crosses over the flow threshold during a water year for the \(2nd, 5th, 10th, and 20th percentile\) exceedance flows over the period of record. This metric is measured in counts (number of occurrences). 
+Peak flow frequency is the number of times that flow crosses over an exceedance flow threshold \(2nd, 5th, 10th, or 20th percentile\). This metric is measured in frequency count (number of occurrences). 
 
 #### Steps
 

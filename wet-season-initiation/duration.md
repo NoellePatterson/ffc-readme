@@ -10,9 +10,9 @@ Wet season initiation duration is in most cases calculated as the the number of 
   ```py
    def calc_fall_flush_durations_2(filter_data, date):
    ```
-2. Set a requirement for slope and flow magnitude on either side of the initiation event \(left-side rising limb and right-side falling limb\). The derivative percent threshold shown in the code snippet below is the slope requirement. Each side of the peak must have a certain degree of steepness, and once it falls below the steepness threshold then the left or right end of the peak is reached. The derivative threshold is higher for the left side \(requires a steeper rising limb\) and lower for the right side \(requires a less steep falling limb\). This is based on the typical shape of a storm-caused peak in flow.
+2. Set a requirement for slope and magnitude on either side of the event peak \(left-side rising limb and right-side falling limb\). The slope  threshold shown in the code snippet below \(der_percent_threshold\)\. The end of the peak on each side is set when slope decreases below the defined thresholds. The derivative threshold is higher for the left side \(requires a steeper rising limb\) and lower for the right side \(requires a less steep falling limb\). This is based on the typical shape of a storm-caused peak in flow.
 
-  The flow percent threshold is a magnitude percentile requirement for the left or right side of the initiation event peak. For the left side, the left end of the initiation event peak must have a lower magnitude than a certain percentile \(in this case the 80th percentile\) of all flow values on the left side of the peak. The same requirement is used for the right side of the peak.
+  The flow percent threshold \(flow_percent_threshold\)\ is a magnitude percentile requirement for the left or right side of the initiation event peak. For the left side rising limb, the bottom of the rising limb must be below a relative magnitude threshold \(default 80th percentile\) based on all flow values on the left side of the peak. The same requirement is used for the right side of the peak.
 
   ```py
   """Left side sharp"""
@@ -41,8 +41,8 @@ Wet season initiation duration is in most cases calculated as the the number of 
         right = int(date - 2 + right_minarray[0][0])
    ```
 
-4. If the left side of the initiation event has not already been detected as a valley within 10 days of the initiation event peak, then find the left side through the following requirements:  
-   1. The slope of the rising \(left-side\) limb falls below the derivative percent threshold  
+4. If the left side of the initiation event has not already been detected as a valley within 10 days of the initiation event peak, find the left side through the following requirements:  
+   1. The slope of the rising \(left-side\) limb falls below the derivative percent threshold.  
    2. The flow magnitude of the far left side falls below the percentile threshold.
 
   ```py

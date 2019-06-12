@@ -2,11 +2,11 @@
 
 #### Description
 
-The dry season low flow duration is calculated as start of the dry season baseflow until the next year's start of the wet season. This metric is measured in number of days. 
+The dry season low flow duration is calculated as start of the dry season baseflow until the next year's start of the peak magnitude season. This metric is measured in number of days. 
 
 #### Steps
 
-1. The timing of the start of the dry season low flow period and the start of the wet season must first be calculated, and then passed into the calculation for the dry season low flows duration.
+1. The timing of the start of the dry season low flow period and the start of the peak magnitude season must first be calculated, and then passed into the calculation for the dry season low flows duration.
   ```py
   def calc_summer_baseflow_durations_magnitude(flow_matrix, summer_start_dates, fall_flush_dates, fall_flush_wet_dates):
   ```

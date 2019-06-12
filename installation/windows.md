@@ -6,8 +6,9 @@ Windows installation can be done using the python data science platform [Anacond
 
 1. Install [Anaconda](https://www.anaconda.com/download/#macos) with the latest version of Python.
 2. Open the Anaconda app.
-3. Launch Spyder in Anaconda.
+3. Launch [Spyder](https://www.spyder-ide.org/) in Anaconda.
 4. Pull the FFC repository from Github using Git, or download the repository from the Github website.
+5. Open Spyder, and open FFC as a project. 
 
 ```
 git clone https://github.com/leogoesger/func-flow.git

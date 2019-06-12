@@ -2,7 +2,7 @@
 
 #### Definition
 
-The duration of the spring recession is calculated as the period of elapsed time from the start date of the spring recession until the start date of the following dry season low flows period. This metric is measured in number of days.
+The duration of the spring recession is the period of elapsed time from the start date of the spring recession until the start date of the following dry season low flows period. This metric is measured in number of days.
 
 #### Steps
 

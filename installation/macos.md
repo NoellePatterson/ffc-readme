@@ -2,7 +2,7 @@
 
 1. Install [Python3](https://www.python.org/downloads/), [Git](https://git-scm.com/download/) and a [text editor](https://www.sublimetext.com/3) of your choice.
 
-2. Clone the FFC directory as a project in [Terminal](http://www.informit.com/blogs/blog.aspx?uk=The-10-Most-Important-Linux-Commands)
+2. Clone the FFC directory as a project in [Terminal](https://macpaw.com/how-to/use-terminal-on-mac) and navigate to the directory on your computer.
 
    ```
    git clone https://github.com/leogoesger/func-flow.git
@@ -16,7 +16,7 @@
    source my-virtualenv/bin/activate
    ```
 
-4. Install dependencies using pip.
+4. Install dependencies using [pip](https://www.w3schools.com/python/python_pip.asp).
 
    ```
    pip install -r requirements.txt

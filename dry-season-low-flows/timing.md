@@ -2,11 +2,11 @@
 
 #### Definition
 
-The timing of the dry season baseflow captures the date in which the high flows of the winter season have receded and the low-flow period of summer has begun (end of the spring recession). This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+The timing of the dry season baseflow captures the date in which the high flows of the winter season have receded sufficiently into the low flow dry season period. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 
-1. Assemble data into a water year matrix, and append each column of water year data with the first 30 days of the following water year. This is done because in the snowmelt classes especially, the dry season may occur later than October 31st, which is the end of the California water year.
+1. Assemble data into a water year matrix, and append each column of water year data with the first 30 days of the following water year. This is done for cases in which the dry season occurs later than September 31st, which is the end of the California water year. This is most common in snowmelt-sourced flow regimes. 
    ```py
    """Append each column with 30 more days from next column, except the last column"""
         if column_number != len(matrix[0])-1:
@@ -16,7 +16,14 @@ The timing of the dry season baseflow captures the date in which the high flows 
    ```
 2. Prepare the flow data for analysis by interpolating between blank values, smoothing the timeseries with a large-sigma Gaussian filter, and fitting a spline curve to the smoothed data.
 
-3. From the smoothed data, identify the last major peak of the hydrograph. This is meant to represent the last significant flow events of the wet season, or the last "critical mass" of flow. A user-defined late-season threshold is set \(Julian Day 325\), so that the last major season peak flow cannot occur beyond this peak. This is to ensure that the identified peak captures the true wet season, instead of an unseasonal storm flow in the summer period, which sometimes occurs in both storm- and snowmelt- driven streams.
+    ```py
+    flow_data = replace_nan(flow_data)
+    smooth_data = gaussian_filter1d(flow_data, sigma)
+    spl = ip.UnivariateSpline(x_axis, smooth_data, k=3, s=3)
+    spl_first = spl.derivative(1)
+    ```
+
+3. From the smoothed data, identify the last major peak of the hydrograph. This is meant to represent the last significant flow event of the wet season, or the last "critical mass" of flow. A user-defined late-season threshold is set \(default Julian Day 325\), so that the last major season peak flow cannot occur beyond this peak. This is to ensure that the identified peak captures the true wet season, instead of an unseasonal storm flow in the summer period, which sometimes occurs in both storm- and snowmelt- driven streams.
 
    ```py
    """Find the major peaks of the filtered data"""

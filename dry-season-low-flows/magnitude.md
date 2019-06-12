@@ -2,7 +2,7 @@
 
 #### Definition
 
-The magnitude of the dry season is calculated as the 10th percentile of the flows ranging from the start date of the dry season low flow period until the start date of the wet season. This metric is in units of cfs. 
+The magnitude of the dry season is calculated as the 10th percentile of the flows ranging from the start date of the dry season low flow period until the start date of the wet season. This metric is measured in units of cfs. 
 
 #### Steps
 

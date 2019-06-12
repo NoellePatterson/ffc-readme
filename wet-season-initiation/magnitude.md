@@ -2,7 +2,7 @@
 
 #### Definition
 
-The wet season initiation event magnitude is set as the magnitude of flow on the date of the initiation event. This represents the  flow on the date of the initiation event, which is the peak flow. For more information on the initiation event timing metric, which drives the initiation event magnitude, see the section on wet season initiation timing. This metric is in units of cfs. 
+The wet season initiation event magnitude is set as the peak magnitude of flow during the initiation flow event. For more information on the initiation event timing metric, which drives the initiation event magnitude, see the section on wet season initiation timing. This metric is measured in units of cfs. 
 
 #### Steps
 

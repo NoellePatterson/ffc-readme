@@ -1,8 +1,8 @@
-# Peak Magnitude Flows - Wet Season Timing
+# Peak Magnitude Flows - start timing
 
 #### Definition
 
-The timing of the wet season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold of 20% of the difference between baseflow and the peak wet season flow of the smoothed data. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+The start timing of the peak magnitude season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold and a rate of change threshold. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 
@@ -20,31 +20,26 @@ The timing of the wet season is defined as the date that sufficient baseflow has
    wet_season_filter_data = gaussian_filter1d(flow_data, wet_season_sigma)
    broad_filter_data = gaussian_filter1d(flow_data, broad_sigma)
    ```
-4. Identify the max and min flow values \(in the range of the beginning of the water year to the point of max flow\) using the high sigma filtered data, and identify the array of peaks using the low sigma filtered data.
+4. Identify the max and min flow values of the high sigma filtered data, and identify an array of peaks using the low sigma filtered data. Max flow is searched for starting 20 days after the beginning of the water year. The min flow is then found in the range from the beginning of the water year until the timing of the max flow. 
    ```py
     max_wet_peak_mag = max(broad_filter_data[20:])
     max_wet_peak_index = find_index(broad_filter_data, max_wet_peak_mag)
     min_wet_peak_mag = min(broad_filter_data[:max_wet_peak_index])
-    maxarray_wet, minarray = peakdet(wet_season_filter_data, peak_sensitivity_wet)
+    maxarray_wet, _ = peakdet(wet_season_filter_data, peak_sensitivity_wet)
    ```
 5. Identify the earliest peak of sufficient relative magnitude to use as the search index for the start of the wet season.
    ```py
    if (maxarray_wet[index][1]-min_wet_peak_mag)/(max_wet_peak_mag-min_wet_peak_mag) > peak_detect_perc:
-   search_index = int(maxarray_wet[index][0])
-   break
+       search_index = int(maxarray_wet[index][0])
+       break
    ```
-6. Search from right to left, starting at the search index, for the first flow value that falls below the relative magnitude threshold of 20%. This flow date is set as the start date of the wet season.
+6. Search from right to left, starting at the search index, for the first flow value that falls below the relative magnitude threshold of 20% and below a user-defined slope threshold. This flow date is set as the start date of the wet season.
    ```py
    for index, value in enumerate(reversed(wet_season_filter_data[:search_index])):
         if index == len(wet_season_filter_data[:search_index] - 1):
             return None
-        elif (value - min_wet_peak_mag) / (max_wet_peak_mag - min_wet_peak_mag) < wet_threshold_perc:
+        elif (value - min_wet_peak_mag) / (max_wet_peak_mag - min_wet_peak_mag) < wet_threshold_perc and abs(spl_first(search_index - index)) < max_wet_peak_mag/slope_sensitivity:
             """If value percentage falls below wet_threshold_perc"""
             return_date = search_index - index
             return return_date
-   ```
-7. Add 10 days to the identified wet season start date. This has been found to better adjust the final result to the inaccuracy caused by the data filtering.
-   ```py
-   if return_date:
-      wet_dates[-1] = return_date + 10
    ```

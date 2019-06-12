@@ -16,7 +16,7 @@ The wet season initiation timing captures the date of the first storm event of t
    flow_data = replace_nan(flow_data)
    ```
 
-2. Identify the start date of the wet season. For details on finding the timing of the wet season, see the steps for timing in the peak magnitude flows section.
+2. Identify the start date of the peak magnitude season. For details on finding the timing of the wet season, see the steps for peak magnitude start timing calculation in the peak magnitude flows section.
 
 3. Filter the entire water year's flow data with a small filter, and fit a cubic spline function to the curve.
 
@@ -41,7 +41,7 @@ The wet season initiation timing captures the date of the first storm event of t
    * Timing is before wet season initiation or before December 15th, whichever is earlier
    * Duration of the rising limb of the initiation event is under 20 days \(ensures the peak is flashy enough\)
    * The peak itself, from bottom of the rising limb on either side to the top of the peak, is above a relative percent of 30%. This also ensures that the peak is flashy enough.
-   * Relative magnitude is above the median baseflow magnitude threshold. The value of this threshold varies depending on the magnitude of the baseflow. The threshold is usually set as 2 times the previous dry season's baseflow, unless the baseflow is exceptionally high \(above 25 cfs\), in which case the threshold is set as 1.5 times the baseflow. The minimum threshold allowed, regardless of median baseflow, is 3cfs:.
+   * Relative magnitude is above the median baseflow magnitude threshold. The value of this threshold varies depending on the magnitude of the baseflow. The threshold is usually set as 2 times the previous dry season's baseflow, unless the baseflow is exceptionally high \(above 25 cfs\), in which case the threshold is set as 1.5 times the baseflow. The minimum threshold allowed, regardless of median baseflow, is 3cfs by default:.
      ```py
      if bs_med > 25:
             min_flush_magnitude = bs_med * 1.5 # if median baseflow is large (>25), magnitude threshold is 50% above median baseflow of previous summer

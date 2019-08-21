@@ -14,6 +14,7 @@
     * [Wet Season](wet-season.md)
       * [Magnitude](wet-season/magnitude.md)
       * [Timing](wet-season/wet-season-timing.md)
+      * [Duration](wet-season/wet-season-duration.md)
     * [Spring Recession](spring-recession.md)
       * [Magnitude](spring-recession/magnitude.md)
       * [Rate of Change](spring-recession/rate-of-change.md)

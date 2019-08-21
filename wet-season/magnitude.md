@@ -1,4 +1,4 @@
-# Wet-Season - Baseflow Magnitude
+# Wet-Season Baseflow - Magnitude
 
 #### Definition
 

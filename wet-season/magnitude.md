@@ -1,8 +1,8 @@
-# Peak Magnitude Flows - Baseflow Magnitude
+# Wet-Season - Baseflow Magnitude
 
 #### Definition
 
-The baseflow magnitude of the peak magnitude season is defined as 10th percentile magnitude of daily flow from the start of the peak magnitude season to the start of the dry season. This metric is in units of cfs. 
+The baseflow magnitude of wet season is defined as 10th or 50th percentile magnitude of daily flow from the start of the wet season to the start of the dry season. This metric is in units of cfs. 
 
 #### Steps
 
@@ -20,10 +20,12 @@ The baseflow magnitude of the peak magnitude season is defined as 10th percentil
       else:
           flow_data =[]
                 ```
-4. Calculate the 10th percentile of flows in the range found in step 3. Report this value as the peak magnitude season baseflow magnitude.
+4. Calculate the 10th and 50th percentile of flows in the range found in step 3. Report this value as the peak magnitude season baseflow magnitude.
   ```py
   if flow_data:
       wet_baseflows_10.append(np.nanpercentile(flow_data, 10))
+      wet_baseflows_50.append(np.nanpercentile(flow_data, 50))
   else:
       wet_baseflows_10.append(None)
+      wet_baseflows_50.append(None)
   ```

@@ -1,4 +1,4 @@
-# Dry Season Low Flows - Timing
+# Dry Season Baseflow - Timing
 
 #### Definition
 

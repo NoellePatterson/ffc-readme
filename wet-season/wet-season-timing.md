@@ -1,8 +1,8 @@
-# Peak Magnitude Flows - start timing
+# Wet-Season - start timing
 
 #### Definition
 
-The start timing of the peak magnitude season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold and a rate of change threshold. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+The start timing of the wet season is defined as the date that sufficient baseflow has accrued based on a magnitude threshold and a rate of change threshold. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 

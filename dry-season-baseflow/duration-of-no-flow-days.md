@@ -1,4 +1,4 @@
-# Dry Season Low Flows - Duration \(\# of no flow days\)
+# Dry Season Baseflow - Duration \(\# of no flow days\)
 
 #### Description
 
@@ -6,11 +6,11 @@ The duration of no-flow days is the number of days during the dry season in whic
 
 #### Steps
 
-1. The timing of the start of the dry season low flow period and the start of the wet season must first be calculated, and then passed into the calculation for the dry season low flows duration.
+1. The timing of the start of the dry season baseflow period and the start of the wet season must first be calculated, and then passed into the calculation for the dry season baseflow duration.
   ```py
   def calc_summer_baseflow_durations_magnitude(flow_matrix, summer_start_dates, fall_flush_dates, fall_flush_wet_dates):
   ```
-2. Identify the range of flow data corresponding to the start of the dry season low flow period until the start of the wet season.
+2. Identify the range of flow data corresponding to the start of the dry season baseflow period until the start of the wet season.
   ```py
   flow_data_wet = list(flow_matrix[su_date:,column_number]) + list(flow_matrix[:wet_date, column_number])
   ```

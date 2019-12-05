@@ -40,7 +40,6 @@ Each of the following metrics is calculated annually for individual high flows t
 * Magnitude
 * Timing
 * Duration from start of dry season low flows until the start of the wet season of the next water year
-* Number of zero-flow days during the dry season period
 
 
 

@@ -2,7 +2,7 @@
 
 #### Definition
 
-Peak flow duration is the median number of days that a flow event stays over the flow thresholds for the 2nd, 5th, 10th, and 20th percentile exceedance flows over the period of record. This metric is measured in number of days. 
+Peak flow duration is the median number of days that a flow event stays over the flow thresholds for the 10, 5, and 2 year recurrence intervals (2nd, 5th, 10th, and 20th percentile exceedance) of annual peak flow over the period of record. This metric is measured in number of days. 
 
 #### Steps
 

@@ -2,7 +2,7 @@
 
 #### Definition
 
-This metric is the magnitude of the exceedance flow threshold for the 2nd, 5th, 10th, and 20th percentile exceedance flows over the period of record. This metric is in units of cfs.
+This metric is the magnitude of the exceedance flow threshold for the 10-, 5-, or 2-year recurrence intervals of annual peak flow. This metric is in units of cfs.
 
 #### Steps
 

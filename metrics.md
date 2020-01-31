@@ -21,10 +21,9 @@ The FFC calculates metrics describing ecologically relevant components of the an
 
 #### Peak Magnitude Flows
 
-Each of the following metrics is calculated annually for individual high flows that exceed the 10th, 20th, and 50th percentile flows across the period of record:
+Each of the following metrics is calculated annually for individual high flows that exceed 10-year, 5-year, and 2-year recurrence intervals of annual peak flows across the period of record:
 
 * Magnitude
-* Timing
 * Duration
 * Frequency
 

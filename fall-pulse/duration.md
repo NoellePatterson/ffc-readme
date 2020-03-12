@@ -2,7 +2,7 @@
 
 #### Definition
 
-Fall pulse flow duration is in most cases calculated as the the number of days from the beginning of the flow event until the flow event peak. See step 6 in the calculation steps for the exception to this rule. This metric is measured in number of days.
+Fall pulse flow duration is in most cases calculated as the number of days from the beginning of the flow event until the flow event peak. See step 6 in the calculation steps for the exception to this rule. This metric is measured in number of days.
 
 #### Steps
 

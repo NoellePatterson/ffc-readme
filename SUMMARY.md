@@ -23,7 +23,7 @@
     * [Dry Season Baseflow](dry-season-low-flows.md)
       * [Magnitude](dry-season-baseflow/magnitude.md)
       * [Timing](dry-season-baseflow/timing.md)
-      * [Duration\(\# of days\)](dry-season-baseflow/duration-of-days.md)
+      * [Duration](dry-season-baseflow/duration-of-days.md)
       <!-- * [Duration\(\# of no flow days\)](dry-season-baseflow/duration-of-no-flow-days.md) -->
     * [Fall Pulse](fall-pulse.md)
       * [Magnitude](fall-pulse/magnitude.md)

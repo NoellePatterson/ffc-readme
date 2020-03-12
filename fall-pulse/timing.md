@@ -1,8 +1,8 @@
-# Wet Season Initiation Flows - Timing
+# Fall Pulse Flow - Timing
 
 #### Definition
 
-The wet season initiation timing captures the date of the first storm event of the new water year. This is meant to characterize the first significant increase in flows following the dry season. The wet season initiation event is the first date between October 1st to December 15th in which flow exceeds the initiation event threshold, which is defined as twice the magnitude of the previous dry season’s base flow or 1 cfs, whichever is greater. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
+The fall pulse flow timing captures the date of the first storm event of the new water year. This is meant to characterize the first significant increase in flows following the dry season. The fall pulse flow event is the first date between October 1st to December 15th in which flow exceeds the pulse flow event threshold, which is defined as twice the magnitude of the previous dry season’s base flow or 1 cfs, whichever is greater. This metric is measured in Julian days, where January 1st = 1 and December 31st = 365.
 
 #### Steps
 
@@ -36,10 +36,10 @@ The wet season initiation timing captures the date of the first storm event of t
         maxarray, minarray = peakdet(spl(x_axis), mean_flow * peak_sensitivity)
    ```
 
-5. Loop through the peaks in the data and identify the initiation event as the peak that fills the following requirements:
+5. Loop through the peaks in the data and identify the fall pulse flow as the peak that fills the following requirements:
 
-   * Timing is before wet season initiation or before December 15th, whichever is earlier
-   * Duration of the rising limb of the initiation event is under 20 days \(ensures the peak is flashy enough\)
+   * Timing is before the wet season start date or before December 15th, whichever is earlier
+   * Duration of the rising limb of the fall pulse flow is under 20 days \(ensures the peak is flashy enough\)
    * The peak itself, from bottom of the rising limb on either side to the top of the peak, is above a relative percent of 30%. This also ensures that the peak is flashy enough.
    * Relative magnitude is above the median baseflow magnitude threshold. The value of this threshold varies depending on the magnitude of the baseflow. The threshold is usually set as 2 times the previous dry season's baseflow, unless the baseflow is exceptionally high \(above 25 cfs\), in which case the threshold is set as 1.5 times the baseflow. The minimum threshold allowed, regardless of median baseflow, is 3cfs by default:.
      ```py
@@ -51,4 +51,4 @@ The wet season initiation timing captures the date of the first storm event of t
             min_flush_magnitude = min_flush_threshold
      ```
 
-6. The first peak in the data to fill the above requirements is the wet season initiation event. The timing of the wet season initiation is at the peak flow of the event. If no peak fulfills the above requirements, then there is no wet season initiation recorded for that water year.
+6. The first peak in the data to fill the above requirements is the fall pulse flow event. The timing of the fall pulse flow is at the peak flow of the event. If no peak fulfills the above requirements, then there is no fall pulse flow recorded for that water year.

@@ -1,14 +1,14 @@
-# Wet Season Initiation Flow - Magnitude
+# Fall Pulse Flow - Magnitude
 
 #### Definition
 
-The wet season initiation event magnitude is set as the peak magnitude of flow during the initiation flow event. For more information on the initiation event timing metric, which drives the initiation event magnitude, see the section on wet season initiation timing. This metric is measured in units of cfs. 
+The fall pulse flow magnitude is set as the peak magnitude of flow during the pulse flow event. For more information on the fall pulse flow timing metric, which drives the fall pulse flow magnitude, see the section on fall pulse flow timing. This metric is measured in units of cfs. 
 
 #### Steps
 
-1. Determine the timing of the wet season initiation event. See the subsection on Wet Season Initiation Timing for steps to calculate the timing of the wet season initiation.
+1. Determine the timing of the fall pulse flow. See the subsection on Fall Pulse Flow Timing for steps to calculate the timing of the fall pulse flow.
 
-2. Assign the magnitude of the wet season initiation flow as the flow on the start date of the spring recession.
+2. Assign the magnitude of the fall pulse flow as the peak magnitude of the fall pulse flow event.
   ```py
   elif (spl(flow_index[0] - half_duration) - min_flow) / (flow_index[1] - min_flow) < flush_threshold_perc and (spl(flow_index[0] + half_duration) - min_flow) / (flow_index[1] - min_flow) < flush_threshold_perc and flow_index[1] > broad_filter_data[int(flow_index[0])] and flow_index[1] > min_flush_magnitude and flow_index[0] <= date_cutoff:
                 """both side of flow value at the peak + half duration index fall below flush_threshold_perc"""

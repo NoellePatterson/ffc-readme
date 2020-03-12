@@ -1,18 +1,18 @@
-# Wet Season Initiation Flows - Duration
+# Fall Pulse Flow - Duration
 
 #### Definition
 
-Wet season initiation duration is in most cases calculated as the the number of days from the beginning of the initiation event until the initiation event peak. See step 6 in the calculation steps for the exception to this rule. This metric is measured in number of days.
+Fall pulse flow duration is in most cases calculated as the the number of days from the beginning of the flow event until the flow event peak. See step 6 in the calculation steps for the exception to this rule. This metric is measured in number of days.
 
 #### Steps
 
-1. The start date calculated for the wet season initiation timing and the Gaussian filtered flow data are used as inputs for the duration algorithm.
+1. The start date calculated for the fall pulse flow timing and the Gaussian filtered flow data are used as inputs for the duration algorithm.
   ```py
    def calc_fall_flush_durations_2(filter_data, date):
    ```
 2. Set a requirement for slope and magnitude on either side of the event peak \(left-side rising limb and right-side falling limb\). The slope  threshold shown in the code snippet below \(der_percent_threshold\)\. The end of the peak on each side is set when slope decreases below the defined thresholds. The derivative threshold is higher for the left side \(requires a steeper rising limb\) and lower for the right side \(requires a less steep falling limb\). This is based on the typical shape of a storm-caused peak in flow.
 
-  The flow percent threshold \(flow_percent_threshold\)\ is a magnitude percentile requirement for the left or right side of the initiation event peak. For the left side rising limb, the bottom of the rising limb must be below a relative magnitude threshold \(default 80th percentile\) based on all flow values on the left side of the peak. The same requirement is used for the right side of the peak.
+  The flow percent threshold \(flow_percent_threshold\)\ is a magnitude percentile requirement for the left or right side of the fall pulse flow peak. For the left side rising limb, the bottom of the rising limb must be below a relative magnitude threshold \(default 80th percentile\) based on all flow values on the left side of the peak. The same requirement is used for the right side of the peak.
 
   ```py
   """Left side sharp"""
@@ -24,7 +24,7 @@ Wet season initiation duration is in most cases calculated as the the number of 
       flow_percent_threhold_right = 80
   ```
 
-3. Find the valleys on either side of the initiation event peak, using the minimum values from the peak detection algorithm. If a valley is within 10 days of the initiation event peak on either side, then automatically set that valley as the end of the initiation event. This could occur on one side of the initiation event peak and not the other side. If there are no identified valleys on either the left or right side of the initiation event peak, then continue to the next step to identify the valleys \(the right and left durations are set as zero by default, then later reassigned when the actual duration is found\).
+3. Find the valleys on either side of the fall pulse flow peak, using the minimum values from the peak detection algorithm. If a valley is within 10 days of the fall pulse flow peak on either side, then automatically set that valley as the end of the fall pulse flow. This could occur on one side of the fall pulse flow peak and not the other side. If there are no identified valleys on either the left or right side of the fall pulse flow peak, then continue to the next step to identify the valleys \(the right and left durations are set as zero by default, then later reassigned when the actual duration is found\).
 
    ```py
     left_maxarray, left_minarray = peakdet(filter_data[:date], 0.01)
@@ -41,7 +41,7 @@ Wet season initiation duration is in most cases calculated as the the number of 
         right = int(date - 2 + right_minarray[0][0])
    ```
 
-4. If the left side of the initiation event has not already been detected as a valley within 10 days of the initiation event peak, find the left side through the following requirements:  
+4. If the left side of the fall pulse flow has not already been detected as a valley within 10 days of the fall pulse flow peak, find the left side through the following requirements:  
    1. The slope of the rising \(left-side\) limb falls below the derivative percent threshold.  
    2. The flow magnitude of the far left side falls below the percentile threshold.
 
@@ -64,7 +64,7 @@ Wet season initiation duration is in most cases calculated as the the number of 
                          left = date - index_left
                          break
   ```
-5. If the right side of the initiation event has not already been detected as a valley within 10 days of the initiation event peak, then find the right side through the following requirements:  
+5. If the right side of the fall pulse flow has not already been detected as a valley within 10 days of the fall pulse flow peak, then find the right side through the following requirements:  
    1. The slope of the falling \(right-side\) limb falls below the derivative percent threshold.
    2. The flow magnitude of the far right side falls below the percentile threshold.
 
@@ -83,15 +83,15 @@ Wet season initiation duration is in most cases calculated as the the number of 
                          right = date + index_right
                          break
   ```
-6. Once the left and right ends of the initiation event have been detected:
-   * Set the duration as the number of days between the left side of the initiation event peak and the initiation event peak:
+6. Once the left and right ends of the fall pulse flow have been detected:
+   * Set the duration as the number of days between the left side of the fall pulse flow peak and the fall pulse flow peak:
 
      ```py
      if left:
      duration = int(date - left)
      ```
 
-   * If there is no left side identified, set the duration as the number of days between the initiation event peak and the end of the falling limb of the initiation event peak:
+   * If there is no left side identified, set the duration as the number of days between the fall pulse flow peak and the end of the falling limb of the fall pulse flow peak:
      ```py
      elif not left and right:
      duration = int(right - date)

@@ -41,7 +41,7 @@ The fall pulse flow timing captures the date of the first storm event of the new
    * Timing is before the wet season start date or before December 15th, whichever is earlier
    * Duration of the rising limb of the fall pulse flow is under 20 days \(ensures the peak is flashy enough\)
    * The peak itself, from bottom of the rising limb on either side to the top of the peak, is above a relative percent of 30%. This also ensures that the peak is flashy enough.
-   * Relative magnitude is above the median baseflow magnitude threshold. The value of this threshold varies depending on the magnitude of the baseflow. The threshold is usually set as 2 times the previous dry season's baseflow, unless the baseflow is exceptionally high \(above 25 cfs\), in which case the threshold is set as 1.5 times the baseflow. The minimum threshold allowed, regardless of median baseflow, is 3cfs by default:.
+   * Relative magnitude is above the median baseflow magnitude threshold. The value of this threshold varies depending on the magnitude of the baseflow. The threshold is usually set as 2 times the previous dry season's baseflow, unless the baseflow is exceptionally high \(above 25 cfs\), in which case the threshold is set as 1.5 times the baseflow. The minimum threshold allowed, regardless of median baseflow, is 1cfs by default:.
      ```py
      if bs_med > 25:
             min_flush_magnitude = bs_med * 1.5 # if median baseflow is large (>25), magnitude threshold is 50% above median baseflow of previous summer
